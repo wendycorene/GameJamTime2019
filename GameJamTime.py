@@ -1,15 +1,35 @@
 #Functions
 
-def checkInventory():
-    #check to see if something is in the inventory
+def listCommands():
+    #list commands
+    #check inventory, check num of remaining actions, examine item, take
+    #   item, use item, examine room, move?,
     print()
-    
+
+def checkInventory(item, inventory):
+    #check to see if something is in the inventory
+    inInventory = False
+    if item in inventory:
+        inInventory = True
+    return inInventory
+
+def removeFromInventory(item, inventory):
+    #remove an item from inventory
+    if item in inventory:
+        inventory.remove(item)
+
 def printInventory(inventory):
+    #prints the inventory
     if (len(inventory) == 0):
-        print("There is nothing in your inventory.")
+        print("\tThere is nothing in your inventory.")
     else:
         for item in inventory:
             print(item)
+
+def printActionsRemaining(dayActions):
+    print("\t============================")
+    print("\t||  Actions remaining:", dayActions, " ||")
+    print("\t============================")
 
 def printSplashScreen():
     print()
@@ -51,12 +71,17 @@ def printSplashScreen():
     print()
 
 inventory = []
-    
+gameComplete = False
 printSplashScreen()
-printInventory(inventory)
 print("\tWhat is your name?")
 print()
 name = input("\t\t>> ")
 print()
 print("\tHello", name)
+while (gameComplete!= True):
+    dayActions = 5
+    while (dayActions!= 0):
+        printActionsRemaining(dayActions)
+        dayActions-= 1
+    gameComplete = True
 input()
