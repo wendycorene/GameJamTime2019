@@ -23,13 +23,16 @@ def printInventory(inventory):
     if (len(inventory) == 0):
         print("\tThere is nothing in your inventory.")
     else:
+        print("\t+---------------+")
+        print("\t|   INVENTORY   |")
+        print("\t+---------------+")
         for item in inventory:
-            print(item)
+            print("\t   ",item)
 
 def printActionsRemaining(dayActions):
-    print("\t============================")
-    print("\t||  Actions remaining:", dayActions, " ||")
-    print("\t============================")
+    print("\t+------------------------+")
+    print("\t|  ACTIONS REMAINING:", dayActions, " |")
+    print("\t+------------------------+")
 
 def printSplashScreen():
     print()
@@ -70,7 +73,7 @@ def printSplashScreen():
     print()
     print()
 
-inventory = []
+inventory = ["bell", "book", "candle"]
 gameComplete = False
 printSplashScreen()
 print("\tWhat is your name?")
@@ -78,6 +81,7 @@ print()
 name = input("\t\t>> ")
 print()
 print("\tHello", name)
+print()
 while (gameComplete!= True):
     dayActions = 5
     while (dayActions!= 0):
