@@ -20,7 +20,7 @@ def examine(room, descriptions, inventory):
     print()
     if (room == "pod"):
         podCanExamine = ["note", "self", "pod"]
-        if (whatToExamine in podCanExamine) and (whatToExamine in inventory):
+        if (whatToExamine in podCanExamine):
             print("\t", descriptions.get(whatToExamine))
         else:
             print("\tI don't understand.")
