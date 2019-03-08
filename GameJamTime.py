@@ -4,7 +4,26 @@ def listCommands():
     #list commands
     #check inventory, check num of remaining actions, examine item, take
     #   item, use item, examine room, move?,
+    print("\t* EXAMINE")
+    print("\t* USE")
+    print("\t* GO")
+    print("\t* TAKE")
+    print("\t* TIME")
+    print("\t* CANCEL")
+    print("\t* INVENTORY")
     print()
+
+def examine(room, descriptions):
+    print("\tWhat would you like to examine?")
+    print()
+    whatToExamine = (input("\t\t>> ")).lower()
+    print()
+    if (room == "pod"):
+        podCanExamine = ["note", "self", "pod"]
+        if whatToExamine in podCanExamine:
+            print("\t", descriptions.get(whatToExamine))
+        else:
+            print("\tI don't understand.")
 
 def checkInventory(item, inventory):
     #check to see if something is in the inventory
@@ -28,13 +47,15 @@ def printInventory(inventory):
         print("\t+---------------+")
         for item in inventory:
             print("\t   ",item)
+    print()
 
 def printActionsRemaining(dayActions):
     print("\t+------------------------+")
     print("\t|  ACTIONS REMAINING:", dayActions, " |")
     print("\t+------------------------+")
+    print()
 
-def printSplashScreen():
+"""def printSplashScreen():
     print()
     print("\t             O")
     print("\t            (_)")
@@ -71,21 +92,80 @@ def printSplashScreen():
     print("\t  /__-___-___-___-___-__\\")
     print("\t `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`")
     print()
-    print()
+    print()"""
 
-inventory = ["bell", "book", "candle"]
+def printSplashScreen():
+    print(" *   .      *  .        *       .       .       *    .       .             *")
+    print("      *    .  *    __  __             _               .             *")
+    print("                  |  \\/  | __ _ _   _| |__   ___        *")
+    print(" *   .        *   | |\\/| |/ _` | | | | '_ \\ / _ \\    .       .       *")
+    print("   .     *        | |  | | (_| | |_| | |_) |  __/")
+    print("           .     .|_|  |_|\\__,_|\\__, |_.__/ \\___|  *        *")
+    print("       .              .       . |___/      *      .")
+    print("      *    .  *                         .                       *")
+    print(".  *            *       _   _       *   _       *")
+    print("                       | \\ | | _____  _| |_ .       *")
+    print("         *         .   |  \\| |/ _ \\ \\/ / __|      *          .")
+    print("      *    .   *       | |\\  |  __/>  <| |_      .    *")
+    print("                   *   |_| \\_|\___/_/\\_\\\\__|   .      .")
+    print("      *    .  *                               .             *")
+    print(" *    .         .     _____ _          *        .       *")
+    print("   .      *          |_   _(_)_ __ ___   ___      *       .    .     *")
+    print("     .    .   *        | | | | '_ ` _ \\ / _ \\ *      .")
+    print("    .            .     | | | | | | | | |  __/   .       *")
+    print(".   *      *           |_| |_|_| |_| |_|\\___|       *    .")
+    print("                          .              ")
+    print("   *          .   *           .  *        *       ")
+    print("         *          .   *      .     *        .  *        *       ")
+    print(" *    .  *    *    .  *    By: Hannah Jahal & Wendy King   .      .             *")
+    print(" *   .        *    *   .        *       .           .       *")
+
+
+inventory = ["note"]
+descriptions ={"note":"This is information about the note",
+   "pod":"description of pod", "self":"description of self"}
 gameComplete = False
+currentRoom = "pod"
+action = ""
 printSplashScreen()
-print("\tWhat is your name?")
 print()
-name = input("\t\t>> ")
-print()
-print("\tHello", name)
-print()
-while (gameComplete!= True):
+while (gameComplete != True):
     dayActions = 5
+    print("\tYou find yourself in a stasis pod...")
+    print()
     while (dayActions!= 0):
-        printActionsRemaining(dayActions)
-        dayActions-= 1
+        print("\tWhat would you like to do?")
+        print()
+        action = (input("\t\t>> ")).lower()
+        print()
+        if (action == "examine"):
+            examine(currentRoom, descriptions)
+            dayActions-= 1
+            printActionsRemaining(dayActions)
+        elif (action == "use"):
+            print("USE")
+            dayActions-= 1
+            printActionsRemaining(dayActions)
+        elif (action == "go"):
+            print("GO")
+            dayActions-= 1
+            printActionsRemaining(dayActions)
+        elif (action == "take"):
+            print("TAKE")
+            dayActions-= 1
+            printActionsRemaining(dayActions)
+        elif (action == "time"):
+            printActionsRemaining(dayActions)
+        elif (action == "cancel"):
+            print("CANCEL")
+            print()
+        elif (action == "inventory"):
+            printInventory(inventory)
+        elif (action == "help"):
+            listCommands()
+        else:
+            print("\tI don't understand. Try again or ask for HELP.")
+            print()
     gameComplete = True
+    print("you have reached the end of the game.")
 input()
