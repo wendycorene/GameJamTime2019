@@ -13,14 +13,14 @@ def listCommands():
     print("\t* INVENTORY")
     print()
 
-def examine(room, descriptions):
+def examine(room, descriptions, inventory):
     print("\tWhat would you like to examine?")
     print()
     whatToExamine = (input("\t\t>> ")).lower()
     print()
     if (room == "pod"):
         podCanExamine = ["note", "self", "pod"]
-        if whatToExamine in podCanExamine:
+        if (whatToExamine in podCanExamine) and (whatToExamine in inventory):
             print("\t", descriptions.get(whatToExamine))
         else:
             print("\tI don't understand.")
@@ -139,7 +139,7 @@ while (gameComplete != True):
         action = (input("\t\t>> ")).lower()
         print()
         if (action == "examine"):
-            examine(currentRoom, descriptions)
+            examine(currentRoom, descriptions, inventory)
             dayActions-= 1
             printActionsRemaining(dayActions)
         elif (action == "use"):
