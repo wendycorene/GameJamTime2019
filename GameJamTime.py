@@ -49,7 +49,7 @@ def use(currentRoom, inventory, descriptions, roomsContain):
             print("\tYou manage to use the wrench to turn the valve. The gas leak has stopped, but there is still gas in the air.")
             removeFromInventory(whatToUse, inventory)
             gasLeaking = False
-        if (currentRoom == "mess" and whatToUse == "bolt cutters"):
+        if (currentRoom == "mess hall" and whatToUse == "bolt cutters"):
             print()
             descriptions["cabinet"] = "You break through the padlock and open the cabinet to find a tea set."
             print("\t" + descriptions.get("cabinet"))
@@ -159,22 +159,14 @@ def useTerminal():
         print()
         print("\tThe screen is garbled. You can make out the following:")
         print("\tSCAN ship .... sensors..... ")
-        print("\tAccess .... MAP")
         print("\tFLUSH ..... pipes.... oxygen....")
         print("\t...QUIT....")
         print()
         print("\tINPUT:")
-        print()
         choice = (input("\t\t>> ")).lower()
         print()
         if (choice == "scan"):
             print("\t...leak...poison...Maintenance Closet.")
-        elif (choice == "map"):
-            print("\tThe map is difficult to read,",
-            "but you can make out the following ship locations:\n",
-            "\t\tCHAMBER \t\tBRIDGE \t\tENGINEERING\n",
-            "\t\tMAINTENANCE \t\tMESS \t\tCAPTAIN QUARTERS")
-            print()
         elif (choice == "flush"):
             print("\t To FLUSH.... oxygen.... password:")
             print()
@@ -184,14 +176,13 @@ def useTerminal():
             if (password == "fhqwhgads" and gasLeaking == True):
                 print("\tPassword correct.")
                 print("\tDangerous particles still detected.")
-            if (password == "fhqwhgads" and gasLeaking == False):
+            elif (password == "fhqwhgads" and gasLeaking == False):
                 print("\tPassword correct.")
                 print("\tAir Supply Decontaminated.")
                 gameComplete = True
                 break
             else:
                 print("\tPassword incorrect.")
-
         elif (choice == "quit"):
             print("\tThe terminal flickers to black.")
             print()
@@ -226,7 +217,7 @@ def printSplashScreen():
     print(" *   .        *    *   .        *       .           .       *")
 
 
-inventory = [""]
+inventory = ["map"]
 numberOfPods = 87
 bodies = 0
 descriptions = {"pod":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Vazquez to Engineering. Officer Vazquez to Engineering.\" \n\tThere is a button in front of you.",
@@ -234,7 +225,7 @@ descriptions = {"pod":"You slowly regain consciousness and as you open your eyes
                 "bridge": "You see the logs systems within the main console of the ship. Windows line the entirety of the\n\tnose of the ship, providing a seemingly endless view of the starry expanse.",
                 "engineering": "You enter Engineering, a room that you’ve spent countless hours in since taking on the\n\tposition of Head Engineer. You look around at the familiar space, filled with terminals,\n\treactors and cargo containers. You go up your usual terminal. ",
                 "maintenance": "You enter the maintenance closet, looking for anything of use.\n\tYou see a crowbar, a wrench, and bolt cutters.\n\tYou see a large pipe along the side of the wall with gas spewing out.",
-                "mess": "You see tables and chairs strewn about the room with half-eaten plates of food\n\tthat seem to have been abandoned during the emergency alert. You see your keycard sitting on\n\tone of the tables and a locked cabinet and a mop in the corner.",
+                "mess hall": "You see tables and chairs strewn about the room with half-eaten plates of food\n\tthat seem to have been abandoned during the emergency alert. You see your keycard sitting on\n\tone of the tables and a locked cabinet and a mop in the corner.",
                 "captain quarters": "You approach the door to the Captain’s Quarters, only to find that the door is jammed shut and will not open.",
                 "wrench": "A tool used to provide grip. It's also heavy enough to kill a man.",
                 "crowbar": "An iron tool with a curved end, often used as a lever/to pry things open.",
@@ -248,16 +239,17 @@ descriptions = {"pod":"You slowly regain consciousness and as you open your eyes
                 "door": "The metallic door is jammed shut and the card reader is offline.\n\tIt seems the only way to open this door is with a leveraging tool of some sort.",
                 "pipe": "Upon further examination, you see a VERY large hole and a stuck valve.\n\tThere must be some way to redirect the gas.",
                 "button": "The button says exit.",
-                "terminal": "You see your terminal, but it needs a key card. It might be in the mess hall."}
+                "terminal": "You see your terminal, but it needs a key card. It might be in the mess hall.",
+                "map": "Your map is old and worn, but you can still read:\n\tCHAMBER - BRIDGE - ENGINEERING - MAINTENANCE - MESS HALL - CAPTAIN QUARTERS"}
 roomsContain = {"pod": ["button", "pod"],
                 "chamber": ["chamber"],
                 "bridge": ["bridge", "logs"],
                 "engineering": ["engineering", "terminal"],
                 "maintenance": ["maintenance", "crowbar", "wrench", "bolt cutters", "pipe"],
-                "mess": ["mess", "tea set", "mop", "keycard", "cabinet"],
+                "mess hall": ["mess hall", "tea set", "mop", "keycard", "cabinet"],
                 "captain quarters": ["captain quarters", "door", "manual"]}
 allRooms = ["pod", "chamber", "engineering", "maintenance", "captain quarters",
-            "mess", "bridge"]
+            "mess hall", "bridge"]
 action = ""
 printSplashScreen()
 print()
