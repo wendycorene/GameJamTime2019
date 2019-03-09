@@ -29,6 +29,9 @@ def use(currentRoom, inventory, descriptions, roomsContain):
         print("\t" + descriptions.get("map"))
     if (whatToUse == "terminal" and currentRoom == "engineering" and terminalLocked == False):
         useTerminal()
+    elif (whatToUse == "terminal" and currentRoom == "engineering" and terminalLocked == True):
+        print()
+        print("\t" + descriptions.get("terminal"))
     elif (whatToUse == "logs" and currentRoom == "bridge"):
         print()
         print("logs")
