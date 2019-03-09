@@ -24,6 +24,9 @@ def use(currentRoom, inventory, descriptions, roomsContain):
     print("\tWHAT WOULD YOU LIKE TO USE?")
     print()
     whatToUse = (input("\t\t>> ")).lower()
+    if (whatToUse == "map"):
+        print()
+        print("\t" + descriptions.get("map"))
     if (whatToUse == "terminal" and currentRoom == "engineering" and terminalLocked == False):
         useTerminal()
     elif (whatToUse == "logs" and currentRoom == "bridge"):
@@ -33,7 +36,7 @@ def use(currentRoom, inventory, descriptions, roomsContain):
         print()
         print("\tYou hear another voice alarm: \"Poisonous gas detected. Poisonous gas detected.\"")
         print("\tYou suspect your time to get to engineering is limited.")
-        print("\tThe stasis CHAMBER is in front of you.")
+        print("\tThe stasis CHAMBER room is in front of you. You should GO there.")
     elif (whatToUse in inventory):
         if (currentRoom == "captain quarters" and (whatToUse == "crowbar" or whatToUse == "mop")):
             print()
@@ -133,7 +136,7 @@ def updatePodsDict(dictionary, key, value):
     newDef = "As you exit the pod, you see the familiar interior of your spacecraft. As the metallic walls come into focus,\n\tyou notice " + str(value) + " other pods around you, lining the walls of the room. No one else has woken up."
     dictionary[key] = newDef
 
-def goTo(allRooms, currentRoom):
+def goTo(allRooms, currentRoom, descriptions):
     print()
     print("\tWHERE WOULD YOU LIKE TO GO?")
     print()
@@ -144,6 +147,8 @@ def goTo(allRooms, currentRoom):
         print()
         return currentRoom
     elif (whereToGo in allRooms):
+        print()
+        print("\t" + descriptions.get(whereToGo))
         return whereToGo
     else:
         print()
@@ -279,7 +284,7 @@ while (gameComplete != True):
             printActionsRemaining(dayActions)
         elif (action == "go"):
             previousRoom = currentRoom
-            currentRoom = goTo(allRooms, currentRoom)
+            currentRoom = goTo(allRooms, currentRoom, descriptions)
             if (previousRoom != currentRoom):
                 dayActions-= 1
                 printActionsRemaining(dayActions)
