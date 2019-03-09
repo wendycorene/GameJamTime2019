@@ -31,6 +31,8 @@ def use(currentRoom, inventory, descriptions, roomsContain):
         print("logs")
     elif (whatToUse == "button" and currentRoom == "pod"):
         print()
+        print("\tYou hear another voice alarm: \"Poisonous gas detected. Poisonous gas detected.\"")
+        print("\tYou suspect your time to get to engineering is limited.")
         print("\tThe stasis CHAMBER is in front of you.")
     elif (whatToUse in inventory):
         if (currentRoom == "captain quarters" and (whatToUse == "crowbar" or whatToUse == "mop")):
@@ -220,7 +222,8 @@ def printSplashScreen():
 inventory = ["map"]
 numberOfPods = 87
 bodies = 0
-descriptions = {"pod":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Vazquez to Engineering. Officer Vazquez to Engineering.\" \n\tThere is a button in front of you.",
+descriptions = {"pod":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Velazquez to Engineering. Officer Velazquez to Engineering.\" \n\tThere is a button in front of you.",
+                "pod2":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Velazquez to Engineering....\" \n\t...You've been here before. The teleportation system must have sent you back to your pod\n\twhen the gas became too much for your body. Maybe this time...",
                 "chamber": "As you exit the pod, you see the familiar interior of your spacecraft. As the metallic walls come into focus,\n\tyou notice 87 other pods around you, lining the walls of the room. No one else has woken up.",
                 "bridge": "You see the logs systems within the main console of the ship. Windows line the entirety of the\n\tnose of the ship, providing a seemingly endless view of the starry expanse.",
                 "engineering": "You enter Engineering, a room that you’ve spent countless hours in since taking on the\n\tposition of Head Engineer. You look around at the familiar space, filled with terminals,\n\treactors and cargo containers. You go up your usual terminal. ",
@@ -233,15 +236,16 @@ descriptions = {"pod":"You slowly regain consciousness and as you open your eyes
                 "tea set": "This tea set is pale green with four tiny tea cups and various tea-like things.\n\tYou haven't seen a tea set quite like this since visiting your grandmother years ago.",
                 "manual": "You thumb through the book slowly, looking for anything that could be of use.\n\tIf anyone knows about emergency protocols, it's Captain Whitaker.\n\tThey're the kind of captain who puts safety as our top priority.\n\tYou wonder if they had anything to do with the fact that you were the one programmed\n\tto wake up in case of an emergency like this.\n\tYou skim through a significant amount of text messily scrawled on the pages, but you eventually find\n\ta password labeled \"Override Password.\" The password reads: fhqwhgads.\n\tThis might be important.",
                 "bolt cutters": "A tool used to cut through chains, padlocks, and all sorts of other sturdy looking things.",
-                "keycard": "A worn keycard with your name on it. It reads: Officer Meg Velasquez.",
+                "keycard": "A worn keycard with your name on it. It reads: Officer Meg Velazquez.",
                 "logs": "You hear alarms, followed by nervous chatter between crew members.\n\tThe audio becomes choppy, but you can make out the following:\n\t\"Captain! Asteroid... Incoming!\"\n\tThe dialogue is interrupted by explosions and screams.\n\t\"Teleport everyone... pods!... Prepare for impact... Oh God--It's--\"\n\tThe audio cuts off there. Upon impact with asteroid, the teleportation system must have sent everyone back\n\tto their pods. There has to be a way to wake everyone back up...",
                 "cabinet": "The cabinet is padlocked shut, keeping it tightly guarded.",
                 "door": "The metallic door is jammed shut and the card reader is offline.\n\tIt seems the only way to open this door is with a leveraging tool of some sort.",
                 "pipe": "Upon further examination, you see a VERY large hole and a stuck valve.\n\tThere must be some way to redirect the gas.",
-                "button": "The button says exit.",
+                "button": "The button says exit. You could try to USE it.",
                 "terminal": "You see your terminal, but it needs a key card. It might be in the mess hall.",
                 "map": "Your map is old and worn, but you can still read:\n\tCHAMBER - BRIDGE - ENGINEERING - MAINTENANCE - MESS HALL - CAPTAIN QUARTERS"}
 roomsContain = {"pod": ["button", "pod"],
+                "pod2": ["button", "pod"],
                 "chamber": ["chamber"],
                 "bridge": ["bridge", "logs"],
                 "engineering": ["engineering", "terminal"],
@@ -251,12 +255,12 @@ roomsContain = {"pod": ["button", "pod"],
 allRooms = ["pod", "chamber", "engineering", "maintenance", "captain quarters",
             "mess hall", "bridge"]
 action = ""
+currentRoom = "pod"
 printSplashScreen()
 print()
 while (gameComplete != True):
     dayActions = 5
     eatenByGrue = False
-    currentRoom = "pod"
     print("\t" + descriptions.get(currentRoom))
     print()
     while (dayActions!= 0):
@@ -300,10 +304,11 @@ while (gameComplete != True):
             break
     numberOfPods -= 1
     bodies += 1
+    currentRoom = "pod2"
     updatePodsDict(descriptions, "chamber", numberOfPods)
 
 print()
-print("\tA strong woosh surrounds you. Any alarms are calmed. You hear Captain Whitaker's voice in your ear:\n\t\"Velasquez! Meet me on the bridge!\"")
+print("\tA strong woosh surrounds you. Any alarms are calmed. You hear Captain Whitaker's voice in your ear:\n\t\"Velazquez! Meet me on the bridge!\"")
 print("\tAs you make your way to the bridge, you see people slowly trickling out of the stasis chamber room.")
 print("\tOn the bridge, Captain Whitaker thanks you for fixing the situation.")
 print("\t\"Ensign, how many were lost?\"")
