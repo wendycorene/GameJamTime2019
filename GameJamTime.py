@@ -12,7 +12,7 @@ def listCommands():
     #check inventory, check num of remaining actions, examine item, take
     #   item, use item, examine room, move?,
     print()
-    print("\tPOSSIBLE ACTIONS: EXAMINE (item, room), USE (item), GO (room), TAKE (item), TIME, INVENTORY")
+    print("\tPOSSIBLE ACTIONS: EXAMINE --, USE --, GO --, TAKE --, TIME, INVENTORY")
     print()
 
 def use(currentRoom, inventory, descriptions, roomsContain):
@@ -267,7 +267,8 @@ while (gameComplete != True):
     dayActions = 5
     eatenByGrue = False
     print("\t" + descriptions.get(currentRoom))
-    print()
+    if (currentRoom == "pod"):
+        listCommands()
     while (dayActions!= 0):
         print("\tWHAT WOULD YOU LIKE TO DO?")
         print()
