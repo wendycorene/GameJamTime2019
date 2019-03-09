@@ -42,7 +42,7 @@ def use(currentRoom, inventory, descriptions, roomsContain):
             removeFromInventory(whatToUse, inventory)
         if (currentRoom == "engineering" and whatToUse == "keycard" and terminalLocked == True):
             print()
-            print("\tTERMINAL UNLOCKED")
+            print("\tTERMINAL UNLOCKED: MEG VELAZQUEZ")
             descriptions["terminal"] = "Your terminal is now unlocked. Try to USE it."
             terminalLocked = False
             removeFromInventory(whatToUse, inventory)
@@ -58,7 +58,7 @@ def use(currentRoom, inventory, descriptions, roomsContain):
             removeFromInventory(whatToUse, inventory)
         if (whatToUse == "tea set"):
             print()
-            print("YOU ARE EATEN BY A GRUE.")
+            print("\tYOU ARE EATEN BY A GRUE.")
             eatenByGrue = True
             removeFromInventory(whatToUse, inventory)
     else:
@@ -174,17 +174,19 @@ def useTerminal():
             print("\t To FLUSH.... oxygen.... password:")
             print()
             print("\tINPUT:")
-            print()
             password = (input("\t\t>> ")).lower()
             if (password == "fhqwhgads" and gasLeaking == True):
+                print()
                 print("\tPassword correct.")
                 print("\tDangerous particles still detected.")
             elif (password == "fhqwhgads" and gasLeaking == False):
+                print()
                 print("\tPassword correct.")
                 print("\tAir Supply Decontaminated.")
                 gameComplete = True
                 break
             else:
+                print()
                 print("\tPassword incorrect.")
         elif (choice == "quit"):
             print("\tThe terminal flickers to black.")
@@ -194,30 +196,27 @@ def useTerminal():
             print("\tInvalid input.")
 
 def printSplashScreen():
-    print(" *   .      *  .        *       .       .       *    .       .             *")
-    print("      *    .  *    __  __             _               .             *")
-    print("                  |  \\/  | __ _ _   _| |__   ___        *")
-    print(" *   .        *   | |\\/| |/ _` | | | | '_ \\ / _ \\    .       .       *")
-    print("   .     *        | |  | | (_| | |_| | |_) |  __/")
-    print("           .     .|_|  |_|\\__,_|\\__, |_.__/ \\___|  *        *")
-    print("       .              .       . |___/      *      .")
-    print("      *    .  *                         .                       *")
-    print(".  *            *       _   _       *   _       *")
-    print("                       | \\ | | _____  _| |_ .       *")
-    print("         *         .   |  \\| |/ _ \\ \\/ / __|      *          .")
-    print("      *    .   *       | |\\  |  __/>  <| |_      .    *")
-    print("                   *   |_| \\_|\___/_/\\_\\\\__|   .      .")
-    print("      *    .  *                               .             *")
-    print(" *    .         .     _____ _          *        .       *")
-    print("   .      *          |_   _(_)_ __ ___   ___      *       .    .     *")
-    print("     .    .   *        | | | | '_ ` _ \\ / _ \\ *      .")
-    print("    .            .     | | | | | | | | |  __/   .       *")
-    print(".   *      *           |_| |_|_| |_| |_|\\___|       *    .")
-    print("                          .              ")
-    print("   *          .   *           .  *        *       ")
-    print("         *          .   *      .     *        .  *        *       ")
-    print(" *    .  *    *    .  *    By: Hannah Jahal & Wendy King   .      .             *")
-    print(" *   .        *    *   .        *       .           .       *")
+    print("  *            .         *     .        *       .       .       *    .          .             *")
+    print("         *       .            *    __  __             _               .                *")
+    print(" .        .           *           |  \\/  | __ _ _   _| |__   ___           *")
+    print("     *             .          *   | |\\/| |/ _` | | | | '_ \\ / _ \\    .       .          *")
+    print("*         .      .       *        | |  | | (_| | |_| | |_) |  __/")
+    print("                 .        .       |_|  |_|\\__,_|\\__, |_.__/ \\___|  *             *")
+    print("          .                        .          . |___/      *      .                      .")
+    print(".       *                   *           _   _       *   _       *             *  ")
+    print("              .                        | \\ | | _____  _| |_ .       *                           .")
+    print("            *         .                |  \\| |/ _ \\ \\/ / __|      *          .")
+    print("          *         .          *       | |\\  |  __/>  <| |_      .                     .        *")
+    print("                         *             |_| \\_|\___/_/\\_\\\\__|   .      .          *")
+    print("   *               .         .        _____ _          *        .       *")
+    print("          .               *          |_   _(_)_ __ ___   ___      *        .             .     *")
+    print("     .        .         *              | | | | '_ ` _ \\ / _ \\                      *      .")
+    print("    .            .           .         | | | | | | | | |  __/           .       *")
+    print(" .                *        *           |_| |_|_| |_| |_|\\___|       *                   .")
+    print("                     *   .         .                    .                       .  ")
+    print("         *                .        *           .     *        .  *        *       ")
+    print(" *        .                *    .    *    By: Hannah Jahal & Wendy King   .      .             *")
+    print("   *   .        *        *             .        *       .           .       *")
 
 
 inventory = ["map"]
@@ -314,8 +313,12 @@ print("\tAs you make your way to the bridge, you see people slowly trickling out
 print("\tOn the bridge, Captain Whitaker thanks you for fixing the situation.")
 print("\t\"Ensign, how many were lost?\"")
 print("\t\"" + str(bodies) + ", Captain.\"")
-print("\tUnfortunately, Meg, every time you were teleported back to your pod, an exorbitant amount of energy\n\twas needed to revive you. In the process, sacrifices were necessary in order to save everyone else on the ship.")
-print("\tAs you look out the window, you see " + str(bodies) + " bodies floating lifelessly in space.")
+print("\tUnfortunately, Meg, every time you were teleported back to your pod, an exorbitant amount of energy\n\twas needed to revive you. In the process, sacrifices were necessary in order to save everyone")
+print("\telse on the ship. As you look out the window, you see " + str(bodies) + " bodies floating lifelessly in space.")
 print("\tMaybe next time...")
 print()
+print("\tEnd:Y/N")
+print()
+input("\t>> ")
+printSplashScreen()
 input()
