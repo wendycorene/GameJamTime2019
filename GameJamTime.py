@@ -41,6 +41,7 @@ def use(currentRoom, inventory, descriptions, roomsContain):
         if (currentRoom == "engineering" and whatToUse == "keycard" and terminalLocked == True):
             print()
             print("\tTERMINAL UNLOCKED")
+            descriptions["terminal"] = "Your terminal is now unlocked. Try to USE it."
             terminalLocked = False
             removeFromInventory(whatToUse, inventory)
         if (currentRoom == "maintenance" and whatToUse == "wrench"):
@@ -155,6 +156,7 @@ def useTerminal():
     global gameComplete
     choice = " "
     while (choice != "quit"):
+        print()
         print("\tThe screen is garbled. You can make out the following:")
         print("\tSCAN ship .... sensors..... ")
         print("\tAccess .... MAP")
@@ -196,46 +198,6 @@ def useTerminal():
             break
         else:
             print("\tInvalid input.")
-
-
-"""def printSplashScreen():
-    print()
-    print("\t             O")
-    print("\t            (_)")
-    print("\t          _ )_( _")
-    print("\t        /`_) H (_`\\")
-    print("\t      .' (  { }  ) '.")
-    print("\t    _/ /` '-'='-' `\\ \\_       __  __             _          ")
-    print("\t   [_.'   _,...,_   '._]     |  \\/  | __ _ _   _| |__   ___ ")
-    print("\t    |   .:\"`````\":.   |      | |\\/| |/ _` | | | | '_ \\ / _ \\")
-    print("\t    |__//_________\\\\__|      | |  | | (_| | |_| | |_) |  __/")
-    print("\t     | .-----------. |       |_|  |_|\\__,_|\\__, |_.__/ \\___|")
-    print("\t     | |  .-\"\"\"-.  | |                     |___/            ")
-    print("\t     | | /    /  \\ | |")
-    print("\t     | ||-   <   -|| |                  _   _           _   ")
-    print("\t     | | \\    \\  / | |                 | \\ | | _____  _| |_")
-    print("\t     | |[`'-...-'`]| |                 |  \\| |/ _ \\ \\/ / __|")
-    print("\t     | | ;-.___.-; | |                 | |\\  |  __/>  <| |_ ")
-    print("\t     | | |  |||  | | |                 |_| \\_|\___/_/\\_\\\\__|")
-    print("\t     | | |  |||  | | |")
-    print("\t     | | |  |||  | | |")
-    print("\t     | | |  |||  | | |               _____ _                ")
-    print("\t     | | |  |||  | | |              |_   _(_)_ __ ___   ___ ")
-    print("\t     | | | _|||_ | | |                | | | | '_ ` _ \\ / _ \\")
-    print("\t     | | | >===< | | |                | | | | | | | | |  __/")
-    print("\t     | | | |___| | | |                |_| |_|_| |_| |_|\\___|")
-    print("\t     | | |  |||  | | |")
-    print("\t     | | |  ;-;  | | |")
-    print("\t     | | | (   ) | | |")
-    print("\t     | | |  '-'  | | |         By: Hannah Jahal & Wendy King")
-    print("\t     | | '-------' | |")
-    print("\tjgs _| '-----------' |_")
-    print("\t   [= === === ==== == =]")
-    print("\t   [__--__--___--__--__]")
-    print("\t  /__-___-___-___-___-__\\")
-    print("\t `\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"`")
-    print()
-    print()"""
 
 def printSplashScreen():
     print(" *   .      *  .        *       .       .       *    .       .             *")
