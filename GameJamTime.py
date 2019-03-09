@@ -71,11 +71,12 @@ def take(descriptions, inventory, currentRoom, roomsContain):
         print("\tWHAT WOULD YOU LIKE TO TAKE?")
         print()
         whatToTake = (input("\t\t>> ")).lower()
+        print()
         if (whatToTake in thingsInRoom):
             inventory.append(whatToTake)
             thingsInRoom.remove(whatToTake)
             roomsContain[currentRoom] = thingsInRoom
-            printInventory(inventory)
+            print("\t" + whatToTake.upper() + " is in your inventory.")
         else:
             print("\tI DON'T UNDERSTAND.")
 
@@ -118,8 +119,8 @@ def printInventory(inventory):
         print("\t|   INVENTORY   |")
         print("\t+---------------+")
         for item in inventory:
-            print("\t   ",item)
-    print()
+            print("\t    " + item.upper())
+        print()
 
 def printActionsRemaining(dayActions):
     print()
