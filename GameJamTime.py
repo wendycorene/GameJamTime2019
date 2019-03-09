@@ -285,7 +285,8 @@ descriptions = {"pod":"You slowly regain consciousness and as you open your eyes
                 "cabinet": "The cabinet is padlocked shut, keeping it tightly guarded.",
                 "door": "The metallic door is jammed shut and the card reader is offline.\n\tIt seems the only way to open this door is with a leveraging tool of some sort.",
                 "pipe": "Upon further examination, you see a VERY large hole and a stuck valve.\n\tThere must be some way to redirect the gas.",
-                "button": "The button says exit."}
+                "button": "The button says exit.",
+                "terminal": "You see your terminal, but it needs a key card. It might be in the mess hall."}
 roomsContain = {"pod": ["button", "pod"],
                 "chamber": ["chamber"],
                 "bridge": ["bridge", "logs"],
