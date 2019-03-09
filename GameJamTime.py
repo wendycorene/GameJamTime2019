@@ -227,8 +227,8 @@ def printSplashScreen():
 inventory = ["map"]
 numberOfPods = 87
 bodies = 0
-descriptions = {"pod":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Velazquez to Engineering. Officer Velazquez to Engineering.\" \n\tThere is a button in front of you.",
-                "pod2":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Velazquez to Engineering....\" \n\t...You've been here before. The teleportation system must have sent you back to your pod\n\twhen the gas became too much for your body. Maybe this time...",
+descriptions = {"pod":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Velazquez, GO to Engineering. Officer Velazquez, GO to Engineering.\" \n\tThere is a button in front of you.",
+                "pod2":"You slowly regain consciousness and as you open your eyes, you find yourself in one of the stasis pods.\n\tA voice repeatedly alerts you: \"Officer Velazquez, GO to Engineering....\" \n\t...You've been here before. The teleportation system must have sent you back to your pod\n\twhen the gas became too much for your body. Maybe this time...",
                 "chamber": "As you exit the pod, you see the familiar interior of your spacecraft. As the metallic walls come into focus,\n\tyou notice 87 other pods around you, lining the walls of the room. No one else has woken up.",
                 "bridge": "You see the logs systems within the main console of the ship. Windows line the entirety of the\n\tnose of the ship, providing a seemingly endless view of the starry expanse.",
                 "engineering": "You enter Engineering, a room that you’ve spent countless hours in since taking on the\n\tposition of Head Engineer. You look around at the familiar space, filled with terminals,\n\treactors and cargo containers. You go up your usual terminal. ",
