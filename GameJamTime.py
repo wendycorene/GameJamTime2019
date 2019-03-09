@@ -172,8 +172,8 @@ def useTerminal():
         elif (choice == "map"):
             print("\tThe map is difficult to read,",
             "but you can make out the following ship locations:\n",
-            "\t\tCHAMBER \tBRIDGE \t\tENGINEERING\n",
-            "\t\tMAINTENANCE \tMESS \t\tCAPTAIN QUARTERS")
+            "\t\tCHAMBER \t\tBRIDGE \t\tENGINEERING\n",
+            "\t\tMAINTENANCE \t\tMESS \t\tCAPTAIN QUARTERS")
             print()
         elif (choice == "flush"):
             print("\t To FLUSH.... oxygen.... password:")
